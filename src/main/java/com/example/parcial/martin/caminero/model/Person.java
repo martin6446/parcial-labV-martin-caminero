@@ -8,14 +8,16 @@ import org.springframework.data.annotation.AccessType;
 
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
+
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME ,property = "personType",visible = true)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = Player.class ,name = "Player"),
     @JsonSubTypes.Type(value = Manager.class ,name = "Manager")
 })
+
+@Data
+@NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Person {

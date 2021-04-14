@@ -21,8 +21,9 @@ public class PersonService {
         this.playerService = playerService;
     }
 
-    public void add(Person person) {
+    public Person add(Person person) {
         personRepository.save(person);
+        return person;
     }
 
     public List<Person> getAll() {
