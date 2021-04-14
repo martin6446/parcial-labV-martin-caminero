@@ -12,8 +12,8 @@ import javax.persistence.*;
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME ,property = "personType",visible = true)
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = Player.class ,name = "Player"),
-    @JsonSubTypes.Type(value = Manager.class ,name = "Manager")
+    @JsonSubTypes.Type(value = Player.class ,name = "PLAYER"),
+    @JsonSubTypes.Type(value = Manager.class ,name = "MANAGER")
 })
 
 @Data
