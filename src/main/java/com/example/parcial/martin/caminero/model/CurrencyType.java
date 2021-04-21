@@ -1,22 +1,23 @@
 package com.example.parcial.martin.caminero.model;
 
 public enum CurrencyType {
+    EURO("Euro"),
     PESO("Peso"),
-    EURO("Euro");
+    DOLLAR("Dollar");
 
-    private String description;
+    private final String description;
 
     CurrencyType(String description) {
         this.description = description;
     }
 
-    public static CurrencyType find(final String type){
-        for(CurrencyType ct : values()){
-            if(ct.toString().equalsIgnoreCase(type)){
+    public static CurrencyType get(String curType){
+        for (CurrencyType ct : values()){
+            if(ct.toString().equalsIgnoreCase(curType)){
                 return ct;
             }
         }
-        throw new IllegalArgumentException(String.format("Invalid type of currency: %s",type));
+        throw new IllegalArgumentException(String.format("Invalid Currency Type: %s",curType));
     }
 
     public String getDescription() {

@@ -3,10 +3,9 @@ package com.example.parcial.martin.caminero.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -19,12 +18,14 @@ public class Player extends Person{
     private int minutesPlayed;
     private LocalDate birthday;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    private Currency currency;
+
     @Override
     public PersonType personType() {
         return PersonType.PLAYER;
     }
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Currency currency;
+
 
 }
