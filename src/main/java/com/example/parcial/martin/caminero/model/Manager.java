@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 @Entity
 @NoArgsConstructor
+
 public class Manager extends Person{
 
     @OneToMany(fetch = FetchType.EAGER)
@@ -19,7 +20,7 @@ public class Manager extends Person{
     private List<Player> players;
 
     private float vaultWeight;
-    private float totalAmount;
+    private int totalAmount;
 
 
     @Override
@@ -28,4 +29,27 @@ public class Manager extends Person{
     }
 
 
+    public int getTotalAmount(){
+
+        int value = 0;
+
+        for(Player p : players){
+            if(p.getCurrency().getCurrency().equals(CurrencyType.DOLLAR)){
+                value += p.getCurrency().getTotal() * 160;
+            }else if(p.getCurrency().getCurrency().equals(CurrencyType.EURO)){
+                value += p.getCurrency().getTotal() * 340;
+            }else {
+                value += p.getCurrency().getTotal();
+            }
+        }
+
+        return value;
+        // esto creo que estaba mal dejarlo asi como estaba
+        //return players.stream().map(player -> player.getCurrency().getTotal()).reduce(0,Integer::sum);
+    }
+
+    // no se si esta bien pero recuendo que German hablaba algo de que todos los billetes son de 100 y bueno esto es lo que se me ocurrio
+    public float getVaultWeight() {
+        return (float)(getTotalAmount() / 100);
+    }
 }

@@ -11,12 +11,13 @@ import javax.persistence.Id;
 @Data
 @Entity
 @NoArgsConstructor
-
 public class Currency {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String currency;
+
+    private CurrencyType currency;
+
     private int total;
 }
