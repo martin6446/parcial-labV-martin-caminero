@@ -4,7 +4,7 @@ public enum CurrencyType {
     PESO("Peso"),
     EURO("Euro");
 
-    private String description;
+    private final String description;
 
     CurrencyType(String description) {
         this.description = description;
