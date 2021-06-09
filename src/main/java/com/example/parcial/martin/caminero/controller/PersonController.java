@@ -3,6 +3,7 @@ package com.example.parcial.martin.caminero.controller;
 import com.example.parcial.martin.caminero.model.Person;
 import com.example.parcial.martin.caminero.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,5 +39,8 @@ public class PersonController {
     public Person addPlayersToManager(@PathVariable int id, @PathVariable int playerId){
         return personService.updatePlayersList(id,playerId);
     }
+
+
+
 
 }
