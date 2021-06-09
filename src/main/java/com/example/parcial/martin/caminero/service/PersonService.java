@@ -3,6 +3,7 @@ package com.example.parcial.martin.caminero.service;
 import com.example.parcial.martin.caminero.exception.PersonNotFoundException;
 import com.example.parcial.martin.caminero.model.Manager;
 import com.example.parcial.martin.caminero.model.Person;
+import com.example.parcial.martin.caminero.model.dto.PlayerDto;
 import com.example.parcial.martin.caminero.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,4 +52,6 @@ public class PersonService {
 
         return manager;
     }
+
+
 }
