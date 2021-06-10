@@ -19,5 +19,5 @@ public class Currency {
 
     private CurrencyType currency;
 
-    private int total;
+    private float total;
 }
