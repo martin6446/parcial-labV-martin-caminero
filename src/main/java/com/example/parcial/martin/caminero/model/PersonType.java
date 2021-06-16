@@ -2,7 +2,8 @@ package com.example.parcial.martin.caminero.model;
 
 public enum PersonType {
     PLAYER("Player"),
-    MANAGER("Manager");
+    MANAGER("Manager"),
+    STARPLAYER("StarPlayer");
 
     private String description;
 
