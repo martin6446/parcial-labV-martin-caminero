@@ -21,7 +21,7 @@ public class PlayerDto {
 
     private String currency;
 
-    private int amount;
+    private float amount;
 
 
     public static PlayerDto from(Player player) throws IOException, InterruptedException {

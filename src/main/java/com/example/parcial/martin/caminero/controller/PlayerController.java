@@ -1,7 +1,9 @@
 package com.example.parcial.martin.caminero.controller;
 
+import com.example.parcial.martin.caminero.api.ApiCallService;
 import com.example.parcial.martin.caminero.model.Player;
 import com.example.parcial.martin.caminero.model.dto.PlayerDto;
+import com.example.parcial.martin.caminero.model.dto.StarPlayer;
 import com.example.parcial.martin.caminero.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +18,14 @@ import java.util.List;
 @RequestMapping("/players")
 public class PlayerController {
 
+    private final PlayerService playerService;
+    private final ApiCallService apiCallService;
+
     @Autowired
-    private PlayerService playerService;
+    public PlayerController(PlayerService playerService, ApiCallService apiCallService) {
+        this.playerService = playerService;
+        this.apiCallService = apiCallService;
+    }
 
     @GetMapping("/fiesta/deudores")
     public List<PlayerDto> getDebtors() throws IOException, InterruptedException {
@@ -28,5 +36,10 @@ public class PlayerController {
         }
 
         return playerDtos;
+    }
+
+    @GetMapping("/fiesta/starPlayers")
+    public List<StarPlayer> getStarPlayers() throws IOException, InterruptedException {
+        return apiCallService.getStarPlayers();
     }
 }

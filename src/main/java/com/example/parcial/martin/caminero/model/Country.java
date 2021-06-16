@@ -1,27 +1,29 @@
 package com.example.parcial.martin.caminero.model;
 
+import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class Currency {
+public class Country {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @SerializedName("country_id")
+    private int countryId;
 
-    private CurrencyType currency;
+    private String name;
 
-    private float total;
+    @SerializedName("country_code")
+    private String countryCode;
+
+    private String continent;
 }
